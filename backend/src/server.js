@@ -15,7 +15,7 @@ app.use("/api/messages",messageRoutes)
 
 app.use(express.static(path.resolve(__dirname, "../frontend/dist")));
 
-// 🔥 fallback (FIXED)
+
 app.use((req, res) => {
     res.sendFile(path.resolve(__dirname, "../frontend/dist/index.html"));
 });
