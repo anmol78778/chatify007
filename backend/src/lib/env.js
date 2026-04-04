@@ -9,9 +9,14 @@ export const ENV = {
     RESEND_API_KEY: process.env.RESEND_API_KEY,
     EMAIL_FROM: process.env.EMAIL_FROM,
     EMAIL_FROM_NAME: process.env.EMAIL_FROM_NAME,
+    CLOUDINARY_CLOUD_NAME: process.env.CLOUDINARY_CLOUD_NAME,
+    CLOUDINARY_API_KEY: process.env.CLOUDINARY_API_KEY,
+    CLOUDINARY_API_SECRET: process.env.CLOUDINARY_API_SECRET,
 }
 
-
+// CLOUDINARY_CLOUD_NAME=dxsqx0xx1
+// CLOUDINARY_API_KEY=651993164571756
+// CLOUDINARY_API_SECRET=xRuevjfswQnWUeWrFoV_OFv2RO0
 // PORT=3000
 // MONGO_URI=mongodb+srv://anmolkroe_db_user:0weU8ov2oNWJfJOm@cluster0.yqykswi.mongodb.net/?appName=Cluster0
 // NODE_ENV=development
