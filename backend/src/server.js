@@ -4,9 +4,9 @@ import path from 'path'
 import authRoutes from "./routes/auth.route.js"
 import messageRoutes from "./routes/message.route.js"
 import {connectDB} from "./lib/db.js";
+import {ENV} from "./lib/env.js";
 
 
-dotenv.config();
 
 const app = express();
 app.use(express.json());
@@ -14,7 +14,7 @@ app.use("/api/auth",authRoutes)
 app.use("/api/messages",messageRoutes)
 
 const __dirname = path.resolve();
-const PORT = process.env.PORT;
+const PORT = ENV.PORT;
 
 
 app.use(express.static(path.resolve(__dirname, "../frontend/dist")));
