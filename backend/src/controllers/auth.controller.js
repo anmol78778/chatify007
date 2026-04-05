@@ -43,9 +43,8 @@ export const signup = async (req, res) => {
 
       // after CR:
       // Persist user first, then issue auth cookie
-      // await newUser.save()
-        const savedUser = await newUser.save();
-        generateToken(savedUser._id, res);
+      const savedUser = await newUser.save();
+      generateToken(savedUser._id, res);
 
       res.status(201).json({
         _id: newUser._id,
@@ -54,7 +53,6 @@ export const signup = async (req, res) => {
         profilePic: newUser.profilePic,
       });
 
-   //send a welcome email to user
       try {
         await sendWelcomeEmail(savedUser.email, savedUser.fullName, ENV.CLIENT_URL);
       } catch (error) {
@@ -84,9 +82,10 @@ export const login = async (req, res) => {
     const isPasswordCorrect = await bcrypt.compare(password, user.password);
     if (!isPasswordCorrect) return res.status(400).json({ message: "Invalid credentials" });
 
-    generateToken(user._id, res);
+    const token =generateToken(user._id, res);
 
     res.status(200).json({
+      token,
       _id: user._id,
       fullName: user.fullName,
       email: user.email,
@@ -96,7 +95,7 @@ export const login = async (req, res) => {
     console.error("Error in login controller:", error);
     res.status(500).json({ message: "Internal server error" });
   }
-}
+};
 
 export const logout = (_, res) => {
   res.cookie("jwt", "", { maxAge: 0 });
