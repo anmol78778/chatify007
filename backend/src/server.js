@@ -9,7 +9,8 @@ import {connectDB} from "./lib/db.js";
 import {ENV} from "./lib/env.js";
 import { app, server } from './lib/socket.js';
 
-
+import dotenv from "dotenv";
+dotenv.config();
 
 
 app.use(express.json({limit:"10mb"}));
@@ -20,18 +21,18 @@ app.use(cookieParser())
 app.use("/api/auth",authRoutes)
 app.use("/api/messages",messageRoutes)
 
-const __dirname = path.resolve();
+// const __dirname = path.resolve();
 const PORT = ENV.PORT;
 
 
-app.use(express.static(path.resolve(__dirname, "../frontend/dist")));
+// app.use(express.static(path.resolve(__dirname, "../frontend/dist")));
 
 
-app.use((req, res) => {
-    res.sendFile(path.resolve(__dirname, "../frontend/dist/index.html"));
-});
+// app.use((req, res) => {
+//     res.sendFile(path.resolve(__dirname, "../frontend/dist/index.html"));
+// });
 
 server.listen(PORT, () => {
-    console.log('Server is running on port 3000 ');
+    console.log(`Server running on ${PORT}`);
     connectDB();
 });
