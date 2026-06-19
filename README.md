@@ -8,10 +8,8 @@ A full-stack real-time chat application that enables users to communicate instan
 
 - 🔐 User authentication (Signup / Login)
 - 💬 Real-time one-to-one messaging
-- 🧑‍🤝‍🧑 Group chat support
 - 🟢 Online / Offline user status
 - 📡 Instant message delivery using Socket.io
-- 🔔 Real-time updates and notifications
 - 📱 Responsive UI for mobile and desktop
 - 📁 Media sharing support (images/files if implemented)
 
