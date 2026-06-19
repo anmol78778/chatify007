@@ -39,7 +39,7 @@ A full-stack real-time chat application that enables users to communicate instan
 
 chat-app/
 │
-├── frontend/ # Frontend (React / Next.js)
+├── frontend/ # Frontend (React)
 ├── Backend/ # Backend (Node + Express)
 │
 ├── models/ # Database schemas
